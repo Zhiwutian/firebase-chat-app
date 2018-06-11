@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
-import {updateInput, sendMessageToDatabase} from "../actions"
+import {updateInput, sendMessageToDatabase, clearInput} from "../actions"
 
 class MessageInput extends Component {
 
@@ -8,6 +8,7 @@ class MessageInput extends Component {
         event.preventDefault();
 
         sendMessageToDatabase(this.props.message);
+        this.props.clearInput("message");
     }
 
 
@@ -44,4 +45,4 @@ function mapStateToProps (state) {
     }
 }
 
-export default connect(mapStateToProps, {updateInput})(MessageInput);
+export default connect(mapStateToProps, {updateInput, clearInput})(MessageInput);
