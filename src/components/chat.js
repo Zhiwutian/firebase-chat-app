@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import db from "../firebase";
+import MessageInput from "./message_input";
 import { connect } from "react-redux";
 import { updateChat } from "../actions";
 class Chat extends Component {
@@ -11,7 +12,6 @@ class Chat extends Component {
 
     }
     render() {
-        console.log("Chat Log:", this.props.chatLog);
 
         const { chatLog } = this.props;
 
@@ -27,6 +27,7 @@ class Chat extends Component {
                 <ul className="collection">
                     {chatElements}
                 </ul>
+                <MessageInput/>
             </div>
         )
     }
